@@ -1,14 +1,22 @@
 import React from 'react';
+import CartItem from './CartItem'
 
 const CartItems = (props) => {
-  console.log('people in CartItems', props.peopleObj2)
-  let peopleList = props.peopleObj2.map((person, index) => <li key={index}>{person.name}</li>)
+  let itemsList = props.items.map(item => <CartItem key={item.id} theItem={item}/>)
   return (
     <div className="container">
       <h1>Items</h1>
-      <ul>
-        {peopleList}
-      </ul>
+      <div className="container">
+        <h1>Items</h1>
+        <div className="collection">
+          <div className="collection-item row grey lighten-3">
+            <div className="col s8">Product</div>
+            <div className="col s2">Price</div>
+            <div className="col s2">Quantity</div>
+          </div>
+          {itemsList}
+        </div>
+      </div>
     </div>
   )
 }
